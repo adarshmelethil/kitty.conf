@@ -1,0 +1,9 @@
+[submodule "kitty_search"]
+	path = kitty_search
+	url = https://github.com/trygveaa/kitty-kitten-search
+[submodule "themes"]
+	path = themes
+	url = https://github.com/dexpota/kitty-themes
+[submodule "vim-navigator"]
+	path = vim-navigator
+	url = https://github.com/knubie/vim-kitty-navigator.git
