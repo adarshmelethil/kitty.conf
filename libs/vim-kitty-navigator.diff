@@ -1,0 +1,25 @@
+diff --git a/pass_keys.py b/pass_keys.py
+index 9e95275..fcb6386 100644
+--- a/pass_keys.py
++++ b/pass_keys.py
+@@ -6,7 +6,10 @@ from kitty.key_encoding import KeyEvent, parse_shortcut
+ 
+ def is_window_vim(window, vim_id):
+     fp = window.child.foreground_processes
+-    return any(re.search(vim_id, p['cmdline'][0] if len(p['cmdline']) else '', re.I) for p in fp)
++    return any(
++        re.search(vim_id, p['cmdline'][0] if len(p['cmdline']) else '', re.I)
++        for p in fp
++    )
+ 
+ 
+ def encode_key_mapping(window, key_mapping):
+@@ -34,7 +37,7 @@ def handle_result(args, result, target_window_id, boss):
+     window = boss.window_id_map.get(target_window_id)
+     direction = args[2]
+     key_mapping = args[3]
+-    vim_id = args[4] if len(args) > 4 else "n?vim"
++    vim_id = args[4] if len(args) > 4 else "(nvim|vim|vi)"
+ 
+     if window is None:
+         return
